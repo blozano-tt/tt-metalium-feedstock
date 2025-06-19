@@ -27,6 +27,7 @@ requirements:
     - pip
     - wheel
     - setuptools
+    - openmpi
     - numactl
     - libhwloc
     - mpc
@@ -38,6 +39,7 @@ requirements:
 
   run:
     - python
+    - openmpi
     - numactl
     - libhwloc
     - libzlib
