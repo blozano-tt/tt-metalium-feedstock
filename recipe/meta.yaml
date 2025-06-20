@@ -1,5 +1,5 @@
 {% set name = "tt-metalium" %}
-{% set version = "0.59.0.rc57" %}
+{% set version = "0.59.0" %}
 
 package:
   name: {{ name|lower }}
@@ -27,7 +27,6 @@ requirements:
     - pip
     - wheel
     - setuptools
-    - openmpi
     - numactl
     - libhwloc
     - mpc
@@ -39,7 +38,6 @@ requirements:
 
   run:
     - python
-    - openmpi
     - numactl
     - libhwloc
     - libzlib
