@@ -25,14 +25,25 @@ cmake --build $SRC_DIR/build --parallel $NUM_PROCS
 cmake --install $SRC_DIR/build
 
 # Warning - HACK!
+# Create both lib directories
 mkdir -p $SRC_DIR/build/lib
-ln -sf $PREFIX/lib/_ttnn.so $SRC_DIR/build/lib/_ttnn.so
+mkdir -p $SRC_DIR/build/lib64
 
 echo "ONE"
 ls $PREFIX/lib/
 
 echo "TWO"
-ls $SRC_DIR/build/lib/
+ls $SRC_DIR/build/lib/ || true
+
+echo "THREE"
+ls $SRC_DIR/build/lib64/ || true
+
+cp $PREFIX/lib/_ttnn.so $SRC_DIR/build/lib/_ttnn.so || true
+cp $PREFIX/lib/_ttnn.so $SRC_DIR/build/lib64/_ttnn.so || true
+cp $PREFIX/lib/libtt_metal.so $SRC_DIR/build/lib/libtt_metal.so || true
+cp $PREFIX/lib/libtt_metal.so $SRC_DIR/build/lib64/libtt_metal.so || true
+cp $PREFIX/lib/libdevice.so $SRC_DIR/build/lib/libdevice.so || true
+cp $PREFIX/lib/libdevice.so $SRC_DIR/build/lib64/libdevice.so || true
 
 echo "Starting pip install"
 
